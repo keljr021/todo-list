@@ -3,6 +3,11 @@
     <head>
     </head>
     <body>
-      <p>[List of Tasks here]</p>
+      <h3>List of Tasks</h3>
+      <ul>
+      @foreach($tasks as $task)
+        <li>{{ $task->id }} <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a></li>
+      @endforeach
+    </ul>
     </body>
 </html>
