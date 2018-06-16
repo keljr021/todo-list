@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tasks', function () {
+    return view('tasks.list');
+});
+
+Route::get('/tasks/{task}', function () {
+    return view('tasks.item', compact('task'));
+});
