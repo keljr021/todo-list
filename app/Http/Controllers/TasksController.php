@@ -7,6 +7,8 @@ use App\Task;
 
 class TasksController extends Controller
 {
+
+    //Shows a list of all tasks
     public function index() {
 
       $tasks = Task::all();
@@ -15,7 +17,31 @@ class TasksController extends Controller
 
     }
 
+    //View an individual task
     public function view(Task $task) {
+
       return view('tasks.item', compact('task'));
+
     }
+
+    public function create() {
+
+      return view('tasks.create');
+
+    }
+
+    public function store() {
+
+      //Creates a new task using request information and saves to database
+      Task::create([
+        'title'        => request('title'),
+        'body'         => request('body'),
+        'priority_ids' => json_encode(request('priority')),
+      ]);
+
+      //Retrun to tasks list
+      redirect('/tasks');
+    }
+
+
 }

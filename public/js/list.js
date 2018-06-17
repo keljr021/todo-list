@@ -18,4 +18,8 @@ $(function() {
     console.log('delete item ', id);
   });
 
+  $('.addBtn').click(function() {
+    location.href = "/tasks/add";
+  })
+
 });

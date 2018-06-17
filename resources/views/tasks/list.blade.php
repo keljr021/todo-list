@@ -47,7 +47,7 @@
         </div>
 
         <div>
-          <button class="btn btn-outline-secondary">+ Add</button>
+          <button class="btn btn-outline-secondary addBtn">+ Add</button>
         </div>
 
       </div>
