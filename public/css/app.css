@@ -10420,5 +10420,6 @@ a.text-dark:focus {
 .tablebox {
   overflow-y: auto;
   max-height: 75vh;
+  margin: 20px 0;
 }
 
