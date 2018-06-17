@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Task;
 
 class TasksController extends Controller
@@ -49,9 +50,36 @@ class TasksController extends Controller
       redirect('/tasks');
     }
 
-    public function destroy() {
+    public function update($id) {
 
+      //Validate the request first
+      $request->validate([
+        'title' => 'required|max:100',
+        'body'  => 'required',
+      ]);
 
+      $task = Task::find($id);
+
+      //Updates the task based on task id
+      $task->title = request('title');
+      $task->body = request('body');
+      $task->priority_ids = request('priority');
+
+      //Save to the database
+      $task->save();
+
+      //Return to tasks list
+      redirect('/tasks');
+
+    }
+
+    public function destroy($id) {
+
+      //Deletes the task by the id
+      $task = Task::find($id);
+      $task->delete();
+
+      redirect('/tasks');
     }
 
 
