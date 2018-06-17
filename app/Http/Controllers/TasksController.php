@@ -32,6 +32,12 @@ class TasksController extends Controller
 
     public function store() {
 
+      //Validate the request first
+      $request->validate([
+        'title' => 'required|max:100',
+        'body'  => 'required',
+      ]);
+
       //Creates a new task using request information and saves to database
       Task::create([
         'title'        => request('title'),
@@ -41,6 +47,11 @@ class TasksController extends Controller
 
       //Retrun to tasks list
       redirect('/tasks');
+    }
+
+    public function destroy() {
+
+
     }
 
 

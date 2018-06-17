@@ -23,4 +23,6 @@ Route::get('/tasks/create', 'TasksController@create');
 
 Route::post('tasks/', 'TasksController@store');
 
+Route::delete('tasks/{task}', 'TasksController@destroy');
+
 Route::get('/tasks/{task}', 'TasksController@view');

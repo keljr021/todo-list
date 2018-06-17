@@ -19,7 +19,7 @@ $(function() {
   });
 
   $('.addBtn').click(function() {
-    location.href = "/tasks/add";
+    location.href = "/tasks/create";
   })
 
 });
