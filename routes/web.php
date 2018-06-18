@@ -13,16 +13,25 @@
 
 use App\Task;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//List of tasks Page
 Route::get('/tasks', 'TasksController@index');
 
+//Add New Task Page
 Route::get('/tasks/create', 'TasksController@create');
 
+
+
+//Save a new Task
 Route::post('tasks/', 'TasksController@store');
 
+//Update a Task
+Route::post('tasks/update', 'TasksController@update');
+
+//Delete a Task
 Route::get('tasks/{id}/destroy', 'TasksController@destroy');
 
+//Edit Task Page
+Route::get('/tasks/{id}/edit', 'TasksController@edit');
+
+//View Task Page
 Route::get('/tasks/{task}', 'TasksController@view');

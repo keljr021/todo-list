@@ -8,7 +8,7 @@ $(function() {
   $('.editBtn').click(function() {
     let id = $(this).parent().parent().attr('data-id');
 
-    location.href = "/tasks/" + id;
+    location.href = "/tasks/" + id + "/edit";
   });
 
   $('.deleteBtn').click(function() {

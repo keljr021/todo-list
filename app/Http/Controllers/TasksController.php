@@ -26,6 +26,15 @@ class TasksController extends Controller
 
     }
 
+    public function edit($id) {
+
+        $task = Task::find($id);
+        $priority = Priority::all();
+
+        return view('tasks.edit', compact('task','priority'));
+
+    }
+
     public function create() {
 
       $priority = Priority::all();
@@ -34,7 +43,7 @@ class TasksController extends Controller
 
     }
 
-    public function store() {
+    public function store(Request $request) {
 
       //Validate the request first
       $request->validate([
@@ -53,7 +62,7 @@ class TasksController extends Controller
       redirect('/tasks');
     }
 
-    public function update($id) {
+    public function update(Request $request) {
 
       //Validate the request first
       $request->validate([
@@ -61,9 +70,9 @@ class TasksController extends Controller
         'body'  => 'required',
       ]);
 
-      $task = Task::find($id);
-
       //Updates the task based on task id
+      $task = Task::find(request('id'));
+
       $task->title = request('title');
       $task->body = request('body');
       $task->priority_ids = request('priority');
@@ -82,7 +91,6 @@ class TasksController extends Controller
       $task = Task::find($id);
       $task->delete();
 
-      redirect('/tasks');
     }
 
 

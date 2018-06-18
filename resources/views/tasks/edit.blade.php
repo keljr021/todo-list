@@ -13,18 +13,19 @@
     </head>
     <body>
       <div class="container-fluid">
-        <h1>Create Task</h1>
-        <form method="POST" action="/tasks">
+        <h1>Edit Task</h1>
+        <form method="POST" action="/tasks/update">
 
           {{ csrf_field() }}
+          <input type="hidden" name="id" value="{{ $task->id }}" />
 
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" maxlength="100" required>
+            <input type="text" class="form-control" id="title" name="title" maxlength="100" value="{{ $task->title }}" required />
           </div>
           <div class="form-group">
             <label for="body">Body</label>
-            <textarea class="form-control" id="body" name="body" required></textarea>
+            <textarea class="form-control" id="body" name="body" required>{{ $task->body }}</textarea>
           </div>
 
           <label>Priority</label>
@@ -42,7 +43,7 @@
 
           <div class="form-group">
             <a href="/tasks" class="btn btn-btn-light">Cancel</a>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
           </div>
         </form>
 
