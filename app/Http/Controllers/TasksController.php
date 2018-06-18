@@ -14,6 +14,35 @@ class TasksController extends Controller
     public function index() {
 
       $tasks = Task::all();
+      $priority = Priority::all();
+
+      //Loop through each task
+      foreach($tasks as $task) {
+
+        //Decode priority IDs as an array
+        $priority_ids = ($task->priority_ids) ? json_decode($task->priority_ids) : [];
+
+        //If exists, go through and check each ID
+        if (count($priority_ids) > 0) {
+
+          //Sets an empty array
+          $priority_array = [];
+
+          //For each priority ID, find the priority in the DB
+          foreach($priority_ids as $pid) {
+            $target = Priority::find($pid);
+
+            //Add record information to the priority array
+            array_push($priority_array, $target);
+
+          }
+
+          //Add to task as a new property
+          $task->priorities = $priority_array;
+
+        }
+
+      }
 
       return view('tasks.list', compact('tasks'));
 

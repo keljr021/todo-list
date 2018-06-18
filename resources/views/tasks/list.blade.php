@@ -29,16 +29,30 @@
             </thead>
             <tbody>
             @foreach($tasks as $task)
-              <tr data-id="{{ $task->id }}">
+              <tr data-id="{{ $task->id }}" class="{{ ($task->is_completed) ? 'completed-row' : ''}}">
                 <td>
-                  <input type="checkbox" value="true" {{ ($task->is_completed) ? 'checked' : '' }} />
+                  <input type="checkbox" class="complete-checkbox" value="true" {{ ($task->is_completed) ? 'checked' : '' }} />
                 </td>
                 <td>{{ $task->title }}</td>
-                <td>{{ $task->priority_ids }}</td>
+                <td>
+                  <span class="priority-span {{ ($task->is_completed) ? 'hide' : ''}}">
+
+                    @if(isset($task->priorities))
+                      @foreach ($task->priorities as $priority)
+
+                        <span class="badge" style="background-color:{{ $priority->color }}" title="{{ $priority->description }}">{{ $priority->name }}</span> &nbsp;
+                        <input type="hidden" class="badge-id" value="{{ $priority->id }}" />
+
+                      @endforeach
+                    @endif  
+                  </span>
+                </td>
                 <td>{{ $task->created_at }}</td>
                 <td>
-                  <button type="button" class="btn btn-outline-secondary btn-sm editBtn">Edit</button>
-                  <button type="button" class="btn btn-outline-secondary btn-sm deleteBtn">Delete</button>
+                  <span class="button-span {{ ($task->is_completed) ? 'hide' : ''}}">
+                    <button type="button" class="btn btn-outline-secondary btn-sm editBtn">Edit</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm deleteBtn">Delete</button>
+                  </span>
                 </td>
               </tr>
             @endforeach

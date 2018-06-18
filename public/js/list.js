@@ -1,6 +1,24 @@
 
 $(function() {
 
+  $('.complete-checkbox').change(function() {
+    let row = $(this).parent().parent();
+    let id = $(row).attr('data-id');
+    let is_checked = this.checked;
+
+    if (is_checked) {
+      $(row).addClass('completed-row');
+      $(row).find('.priority-span').addClass('hide');
+      $(row).find('.button-span').addClass('hide');
+    }
+    else {
+      $(row).removeClass('completed-row');
+      $(row).find('.priority-span').removeClass('hide');
+      $(row).find('.button-span').removeClass('hide');
+
+    }
+  });
+
   $('.addBtn').click(function() {
     location.href = "/tasks/create";
   });
