@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Task;
+use App\Priority;
 
 class TasksController extends Controller
 {
@@ -27,7 +28,9 @@ class TasksController extends Controller
 
     public function create() {
 
-      return view('tasks.create');
+      $priority = Priority::all();
+
+      return view('tasks.create', compact('priority'));
 
     }
 

@@ -28,25 +28,15 @@
           </div>
 
           <label>Priority</label>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" name="priority[]" value="1"> Urgent
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" name="priority[]" value="2"> Important
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" name="priority[]" value="3"> Optional
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" name="priority[]" value="4"> Ignore
-            </label>
+
+          @foreach($priority as $p)
+            <div class="form-check" title="{{ $p->description }}">
+              <label class="form-check-label" style="background-color: {{ $p->color }}">
+                <input type="checkbox" class="form-check-input" name="priority[]" value="{{ $p->id }}"> {{ $p->name }}
+              </label>
+            </div>
+          @endforeach
+
           </div>
           <br />
 
