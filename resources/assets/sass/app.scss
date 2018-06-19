@@ -19,10 +19,23 @@
   margin: 20px 0;
 }
 
+td, th {
+  cursor: pointer;
+}
+
+th a {
+  color: white;
+  text-decoration: underline
+}
+
 .completed-row td {
   color: #c9c9c9;
 }
 
 .hide {
   display: none;
+}
+
+.modal-body-date {
+  font-size: 75%;
 }

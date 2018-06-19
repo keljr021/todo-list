@@ -31,7 +31,7 @@ Route::post('tasks/update', 'TasksController@update');
 Route::get('tasks/{id}/destroy', 'TasksController@destroy');
 
 //Edit Task Page
-Route::get('/tasks/{id}/edit', 'TasksController@edit');
+Route::get('tasks/{id}/edit', 'TasksController@edit');
 
-//View Task Page
-Route::get('/tasks/{task}', 'TasksController@view');
+//Sort task Page
+Route::get('tasks/{type}/{sort}/sort', 'TasksController@sort');

@@ -1,6 +1,12 @@
 
 $(function() {
 
+  //Opens the View Modal for task
+  $('.row-priority,.row-title,.row-created').click(function() {
+    let id = $(this).parent().attr('data-id');
+    $('#view' + id).modal('show');
+  });
+
   $('.complete-checkbox').change(function() {
     let row = $(this).parent().parent();
     let id = $(row).attr('data-id');
@@ -24,13 +30,13 @@ $(function() {
   });
 
   $('.editBtn').click(function() {
-    let id = $(this).parent().parent().attr('data-id');
+    let id = $(this).parent().parent().parent().attr('data-id');
 
     location.href = "/tasks/" + id + "/edit";
   });
 
   $('.deleteBtn').click(function() {
-    let id = $(this).parent().parent().attr('data-id');
+    let id = $(this).parent().parent().parent().attr('data-id');
 
     let confirm = window.confirm('Delete this item?')
 

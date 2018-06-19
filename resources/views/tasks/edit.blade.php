@@ -30,13 +30,13 @@
 
           <label>Priority</label>
 
-          @foreach($priority as $p)
-            <div class="form-check" title="{{ $p->description }}">
-              <label class="form-check-label" style="background-color: {{ $p->color }}">
-                <input type="checkbox" class="form-check-input" name="priority[]" value="{{ $p->id }}"> {{ $p->name }}
-              </label>
-            </div>
-          @endforeach
+            @foreach($priority as $p)
+              <div class="form-check" title="{{ $p->description }}">
+                <label class="form-check-label" style="background-color: {{ $p->color }}">
+                  <input type="checkbox" class="form-check-input" name="priority[]" value="{{ $p->id }}" <?= ($task->priority_ids && in_array($p->id, json_decode($task->priority_ids))) ? 'checked' : '';  ?> > {{ $p->name }}
+                </label>
+              </div>
+            @endforeach
 
           </div>
           <br />

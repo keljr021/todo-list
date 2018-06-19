@@ -13690,7 +13690,6 @@ module.exports = __webpack_require__(36);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 __webpack_require__(12);
 
 /***/ }),
