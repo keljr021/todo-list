@@ -10417,6 +10417,10 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.header {
+  padding: 10px 0;
+}
+
 .tablebox {
   overflow-y: auto;
   max-height: 75vh;
@@ -10433,8 +10437,18 @@ th a {
   text-decoration: underline;
 }
 
-.completed-row td {
+.completed td {
   color: #c9c9c9;
+}
+
+.header-complete,
+.header-priority {
+  text-align: center;
+}
+
+.row-complete,
+.row-priority {
+  text-align: center;
 }
 
 .hide {

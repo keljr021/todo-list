@@ -104,11 +104,11 @@ class TasksController extends Controller
 
     }
 
-    public function create() {
+    public function add() {
 
       $priority = Priority::all();
 
-      return view('tasks.create', compact('priority'));
+      return view('tasks.add', compact('priority'));
 
     }
 

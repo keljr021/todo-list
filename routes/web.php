@@ -17,7 +17,7 @@ use App\Task;
 Route::get('/tasks', 'TasksController@index');
 
 //Add New Task Page
-Route::get('/tasks/create', 'TasksController@create');
+Route::get('/tasks/add', 'TasksController@add');
 
 
 

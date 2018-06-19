@@ -39,7 +39,7 @@ $(function() {
   });
 
   $('.addBtn').click(function() {
-    location.href = "/tasks/create";
+    location.href = "/tasks/add";
   });
 
   $('.editBtn').click(function() {
