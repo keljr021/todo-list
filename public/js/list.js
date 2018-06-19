@@ -21,8 +21,21 @@ $(function() {
       $(row).removeClass('completed-row');
       $(row).find('.priority-span').removeClass('hide');
       $(row).find('.button-span').removeClass('hide');
-
     }
+
+    $.ajax({
+      method: 'GET',
+      url: './tasks/' + id + '/' + (is_checked ? 1 : 0) + '/complete',
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function() {
+
+        console.log('Marked' + id + ' as ' + is_checked);
+
+      }
+    });
+
   });
 
   $('.addBtn').click(function() {

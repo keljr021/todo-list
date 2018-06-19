@@ -61,17 +61,39 @@
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">#{{ $task->id }}: {{ $task->title }}</h5>
+                      <div class="modal-header-title">#{{ $task->id }}</div>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
                       <div class="modal-body-text">
+                        <h6>{{ $task->created_at }}</h6>
+                        <h5 class="modal-title">{{ $task->title }}</h5>
                         <p>{{ $task->body }}</p>
                       </div>
-                      <div class="modal-body-date">
-                        <p>Created {{ $task->created_at }}</p>
+                    </div>
+                    <div class="modal-footer">
+
+                      <div class="modal-priority">
+                        <span class="priority-span {{ ($task->is_completed) ? 'hide' : ''}}">
+
+                          @if(isset($task->priorities))
+                            @foreach ($task->priorities as $priority)
+
+                              <span class="badge" style="background-color:{{ $priority->color }}" title="{{ $priority->description }}">{{ $priority->name }}</span>&nbsp;
+                              <input type="hidden" class="badge-id" value="{{ $priority->id }}" />
+
+                            @endforeach
+                          @endif
+                        </span>
+                      </div>
+
+                      <div class="modal-date">
+
+                        @if ($task->completed_at)
+                          <p class="completed-date">Completed on {{ $task->completed_at}}</p>
+                        @endif
                       </div>
                     </div>
                   </div>

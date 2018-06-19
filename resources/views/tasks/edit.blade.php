@@ -19,15 +19,6 @@
           {{ csrf_field() }}
           <input type="hidden" name="id" value="{{ $task->id }}" />
 
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" maxlength="100" value="{{ $task->title }}" required />
-          </div>
-          <div class="form-group">
-            <label for="body">Body</label>
-            <textarea class="form-control" id="body" name="body" required>{{ $task->body }}</textarea>
-          </div>
-
           <label>Priority</label>
 
             @foreach($priority as $p)
@@ -37,6 +28,17 @@
                 </label>
               </div>
             @endforeach
+
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" maxlength="100" value="{{ $task->title }}" required />
+          </div>
+          <div class="form-group">
+            <label for="body">Body</label>
+            <textarea class="form-control" id="body" name="body" required>{{ $task->body }}</textarea>
+          </div>
+
+
 
           </div>
           <br />

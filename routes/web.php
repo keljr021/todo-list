@@ -33,5 +33,7 @@ Route::get('tasks/{id}/destroy', 'TasksController@destroy');
 //Edit Task Page
 Route::get('tasks/{id}/edit', 'TasksController@edit');
 
+Route::get('tasks/{id}/{complete}/complete', 'TasksController@complete');
+
 //Sort task Page
 Route::get('tasks/{type}/{sort}/sort', 'TasksController@sort');

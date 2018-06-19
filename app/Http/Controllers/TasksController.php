@@ -154,6 +154,15 @@ class TasksController extends Controller
 
     }
 
+    public function complete($id, $complete) {
+
+      $task = Task::find($id);
+
+      $task->is_completed = $complete;
+
+      $task->save();
+    }
+
     public function destroy($id) {
 
       //Deletes the task by the id
