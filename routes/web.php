@@ -22,18 +22,18 @@ Route::get('/tasks/create', 'TasksController@create');
 
 
 //Save a new Task
-Route::post('tasks/', 'TasksController@store');
+Route::post('tasks/', 'TasksController@addTask');
 
 //Update a Task
-Route::post('tasks/update', 'TasksController@update');
+Route::post('tasks/update', 'TasksController@updateTask');
 
 //Delete a Task
-Route::get('tasks/{id}/destroy', 'TasksController@destroy');
+Route::get('tasks/{id}/delete', 'TasksController@deleteTask');
 
 //Edit Task Page
 Route::get('tasks/{id}/edit', 'TasksController@edit');
 
-Route::get('tasks/{id}/{complete}/complete', 'TasksController@complete');
+Route::get('tasks/{id}/{complete}/complete', 'TasksController@toggleCompleteTask');
 
 //Sort task Page
 Route::get('tasks/{type}/{sort}/sort', 'TasksController@sort');

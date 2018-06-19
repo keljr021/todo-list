@@ -112,7 +112,7 @@ class TasksController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function addTask(Request $request) {
 
       //Validate the request first
       $request->validate([
@@ -124,14 +124,14 @@ class TasksController extends Controller
       Task::create([
         'title'        => request('title'),
         'body'         => request('body'),
-        'priority_ids' => (request('priority')) ? json_encode(request('priority')) : [],
+        'priority_ids' => ($request->has('priority')) ? json_encode(request('priority')) : null,
       ]);
 
       //Retrun to tasks list
       return redirect('/tasks');
     }
 
-    public function update(Request $request) {
+    public function updateTask(Request $request) {
 
       //Validate the request first
       $request->validate([
@@ -144,7 +144,7 @@ class TasksController extends Controller
 
       $task->title = request('title');
       $task->body = request('body');
-      $task->priority_ids = (request('priority')) ? json_encode(request('priority')) : [];
+      $task->priority_ids = ($request->has('priority')) ? json_encode(request('priority')) : null;
 
       //Save to the database
       $task->save();
@@ -154,7 +154,7 @@ class TasksController extends Controller
 
     }
 
-    public function complete($id, $complete) {
+    public function toggleCompleteTask($id, $complete) {
 
       $task = Task::find($id);
 
@@ -163,7 +163,7 @@ class TasksController extends Controller
       $task->save();
     }
 
-    public function destroy($id) {
+    public function deleteTask($id) {
 
       //Deletes the task by the id
       $task = Task::find($id);
