@@ -38,23 +38,25 @@ th a {
 
 .modal-header {
   width: 100%;
-  background-color: #666;
+  background-color: #777;
   color: #fff;
 }
 
-.modal-title {
-  padding-bottom: 15px;
+.modal-header.completed {
+  background-color: #217124;
 }
 
-.modal-priority {
-  width: 75%;
-  float: left;
+.task-priority {
+  padding: 10px 0;
 }
 
-.modal-date {
-  width: 25%;
-  float: right;
-  text-align: right;
+.task-created {
   font-size: 75%;
-  line-height: 1.25;
+  color: #aaa;
+}
+
+.task-completed {
+  font-size: 75%;
+  font-style: italic;
+  color: #217124;
 }

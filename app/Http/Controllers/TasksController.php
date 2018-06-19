@@ -20,7 +20,7 @@ class TasksController extends Controller
       foreach($tasks as $task) {
 
         //Decode priority IDs as an array
-        $priority_ids = ($task->priority_ids) ? json_decode($task->priority_ids) : [];
+        $priority_ids = ($task->priority_ids && $task->priority_ids != 'null') ? json_decode($task->priority_ids) : [];
 
         //If exists, go through and check each ID
         if (count($priority_ids) > 0) {
@@ -67,7 +67,7 @@ class TasksController extends Controller
       foreach($tasks as $task) {
 
         //Decode priority IDs as an array
-        $priority_ids = ($task->priority_ids) ? json_decode($task->priority_ids) : [];
+        $priority_ids = ($task->priority_ids && $task->priority_ids != 'null') ? json_decode($task->priority_ids) : [];
 
         //If exists, go through and check each ID
         if (count($priority_ids) > 0) {
@@ -124,11 +124,11 @@ class TasksController extends Controller
       Task::create([
         'title'        => request('title'),
         'body'         => request('body'),
-        'priority_ids' => json_encode(request('priority')),
+        'priority_ids' => (request('priority')) ? json_encode(request('priority')) : [],
       ]);
 
       //Retrun to tasks list
-      redirect('/tasks');
+      return redirect('/tasks');
     }
 
     public function update(Request $request) {
@@ -144,13 +144,13 @@ class TasksController extends Controller
 
       $task->title = request('title');
       $task->body = request('body');
-      $task->priority_ids = request('priority');
+      $task->priority_ids = (request('priority')) ? json_encode(request('priority')) : [];
 
       //Save to the database
       $task->save();
 
       //Return to tasks list
-      redirect('/tasks');
+      return redirect('/tasks');
 
     }
 

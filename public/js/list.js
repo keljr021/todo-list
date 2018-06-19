@@ -25,7 +25,7 @@ $(function() {
 
     $.ajax({
       method: 'GET',
-      url: './tasks/' + id + '/' + (is_checked ? 1 : 0) + '/complete',
+      url: '/tasks/' + id + '/' + (is_checked ? 1 : 0) + '/complete',
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
@@ -58,7 +58,7 @@ $(function() {
 
       $.ajax({
         method: 'GET',
-        url: './tasks/' + id + '/destroy',
+        url: '/tasks/' + id + '/destroy',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },

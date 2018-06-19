@@ -47,7 +47,13 @@
                   </span>
                 </td>
                 <td class="row-title">{{ $task->title }}</td>
-                <td class="row-created">{{ $task->created_at }}</td>
+                <td class="row-created">
+                  @php
+                    $time = strtotime($task->created_at);
+                    $date = date('M d h:i A', $time);
+                    echo $date;
+                  @endphp
+                </td>
                 <td class="row-buttons">
                   <span class="button-span {{ ($task->is_completed) ? 'hide' : ''}}">
                     <button type="button" class="btn btn-outline-secondary btn-sm editBtn">Edit</button>
@@ -60,40 +66,45 @@
               <div id="view{{ $task->id }}" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content">
-                    <div class="modal-header">
-                      <div class="modal-header-title">#{{ $task->id }}</div>
+                    <div class="modal-header {{ ($task->is_completed) ? 'completed' : '' }}">
+                      <div class="modal-header-title">{{ $task->title }}</div>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
                       <div class="modal-body-text">
-                        <h6>{{ $task->created_at }}</h6>
-                        <h5 class="modal-title">{{ $task->title }}</h5>
-                        <p>{{ $task->body }}</p>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-
-                      <div class="modal-priority">
-                        <span class="priority-span {{ ($task->is_completed) ? 'hide' : ''}}">
-
+                        <div class="task-body">
+                          <p>{{ $task->body }}</p>
+                        </div>
+                        <div class="task-priority">
                           @if(isset($task->priorities))
                             @foreach ($task->priorities as $priority)
 
                               <span class="badge" style="background-color:{{ $priority->color }}" title="{{ $priority->description }}">{{ $priority->name }}</span>&nbsp;
-                              <input type="hidden" class="badge-id" value="{{ $priority->id }}" />
 
                             @endforeach
                           @endif
-                        </span>
-                      </div>
+                        </div>
+                        <div>
+                          <h6 class="task-created">
+                            @php
+                              $time = strtotime($task->created_at);
+                              $date = date('M d h:i A', $time);
+                              echo $date;
+                            @endphp
+                          </h6>
+                          @if ($task->completed_at)
+                            <h6 class="task-completed">
+                              @php
+                                $time = strtotime($task->completed_at);
+                                $date = date('M d h:i A', $time);
+                                echo 'Completed ' . $date;
+                              @endphp
+                            </h6>
+                          @endif
 
-                      <div class="modal-date">
-
-                        @if ($task->completed_at)
-                          <p class="completed-date">Completed on {{ $task->completed_at}}</p>
-                        @endif
+                        </div>
                       </div>
                     </div>
                   </div>
