@@ -1,6 +1,22 @@
-# Project Title
+# Todo List App
 
 A test development project to display a working to-do list app.
+
+Home Page
+![home](https://raw.githubusercontent.com/keljr021/to-do/master/task_screenshots/home.png)
+
+View
+![view](https://raw.githubusercontent.com/keljr021/to-do/master/task_screenshots/view.png)
+
+![view_completee](https://raw.githubusercontent.com/keljr021/to-do/master/task_screenshots/view_complete.png)
+
+Add Task page
+![add](https://raw.githubusercontent.com/keljr021/to-do/master/task_screenshots/add.png)
+
+Update Task page
+![update](https://raw.githubusercontent.com/keljr021/to-do/master/task_screenshots/update.png)
+
+
 
 
 ### Features
