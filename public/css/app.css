@@ -10421,9 +10421,11 @@ a.text-dark:focus {
   padding: 10px 0;
 }
 
+/* Table Elements */
+
 .tablebox {
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: calc(75vh - 50px);
   margin: 20px 0;
 }
 
@@ -10459,6 +10461,8 @@ th a {
   display: none;
 }
 
+/* View Modal */
+
 .modal-header {
   width: 100%;
   background-color: #777;
@@ -10482,5 +10486,14 @@ th a {
   font-size: 75%;
   font-style: italic;
   color: #217124;
+}
+
+@media all and (max-width: 768px) {
+  .addBtn,
+  .cancelBtn,
+  .submitBtn {
+    width: 50%;
+    margin: 0 25%;
+  }
 }
 

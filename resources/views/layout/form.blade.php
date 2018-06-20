@@ -27,8 +27,8 @@
         <br />
 
         <div class="form-group">
-          <a href="/tasks" class="btn btn-btn-light">Cancel</a>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="/tasks" class="btn btn-btn-light cancelBtn">Cancel</a>
+          <button type="submit" class="btn btn-primary submitBtn">Submit</button>
         </div>
 
       </form>
