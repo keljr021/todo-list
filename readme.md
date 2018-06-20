@@ -2,10 +2,13 @@
 
 A test development project to display a working to-do list app.
 
-Home Page
+### Screenshots
+
+Home page
 ![home](https://raw.githubusercontent.com/keljr021/todo-list/master/task_screenshots/home.png)
 
 View
+
 ![view](https://raw.githubusercontent.com/keljr021/todo-list/master/task_screenshots/view.png)
 
 ![view_completee](https://raw.githubusercontent.com/keljr021/todo-list/master/task_screenshots/view_complete.png)
