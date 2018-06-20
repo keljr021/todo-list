@@ -10427,6 +10427,10 @@ a.text-dark:focus {
   margin: 20px 0;
 }
 
+table {
+  width: 100%;
+}
+
 td,
 th {
   cursor: pointer;
