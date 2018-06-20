@@ -55,14 +55,10 @@ npm install
 
 ```
 
-3. Create a new mySQL database
-
-Can be done using phpMyAdmin or MariaDB.
+3. Create a new mySQL database. This can be done using either phpMyAdmin or MariaDB.
 
 
-4. Create a new .env file based on the .env.example
-
-Link up the new mySQL database.
+4. Create a new .env file based on the .env.example. Add database credentials from the new DB.
 
 
 5. Run the migration scripts and seeders for the database to build the tables.
