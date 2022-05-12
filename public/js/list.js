@@ -58,7 +58,7 @@ $(function() {
 
       $.ajax({
         method: 'GET',
-        url: '/tasks/' + id + '/deleteTask',
+        url: '/tasks/' + id + '/delete',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
